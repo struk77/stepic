@@ -9,4 +9,4 @@ def app(environ, start_response):
     ]
     status = '200 OK'
     start_response(status,headers)
-    return body
+    return queries
