@@ -24,5 +24,5 @@ Including another URLconf
 from django.conf.urls import url
 
 urlpatterns = patterns('qa.views',
-    url(r'^question/(\d+)/$', 'test', name='test'),
+    url(r'^question/(\d+)/$', 'views.test', name='test'),
 )
