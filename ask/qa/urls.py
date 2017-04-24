@@ -23,6 +23,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-urlpatterns = patterns('qa.views',
-    url(r'^question/(\d+)/$', 'views.test', name='test'),
-)
+from . import views
+
+urlpatterns = [
+    url(r'^(?P<question_id>[0-9]+)/$', views.test, name='test'),
+]
