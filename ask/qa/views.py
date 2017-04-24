@@ -12,5 +12,4 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 def test(request, *args, **kwargs):
-    logger.INFO("huyase")
     return HttpResponse('OK')

@@ -20,11 +20,14 @@ Including another URLconf
     /ask/
     /popular/
     /new/
+    
+    
+    (?P<question_id>[0-9]+)/
 """
 from django.conf.urls import url
 
 from . import views
 
 urlpatterns = [
-    url(r'^(?P<question_id>[0-9]+)/$', views.test, name='test'),
+    url(r'^$', views.test, name='test'),
 ]
