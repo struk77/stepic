@@ -1,6 +1,6 @@
 sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/default
-#mkdir /home/box/etc
+mkdir /home/box/etc
 cp /home/box/web/etc/hello.py /home/box/etc/hello.py
 cp /home/box/web/etc/ask.py /home/box/etc/ask.py
 sudo ln -s /home/box/etc/hello.py /etc/gunicorn.d/hello.py
