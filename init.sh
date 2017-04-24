@@ -9,4 +9,4 @@ git config --global user.email "struk@yandex.ru"
 git config --global user.name "struk77"
 sudo /etc/init.d/nginx restart
 #sudo /etc/init.d/gunicorn restart
-sudo gunicorn -c /home/box/web/etc/ask.py ask.wsgi:application
+sudo gunicorn -c /home/box/web/etc/ask.py ask.wsgi:application --pythonpath='/home/box/web/ask/'
