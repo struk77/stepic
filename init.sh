@@ -7,6 +7,8 @@ sudo ln -s /home/box/web/etc/hello.py /etc/gunicorn.d/hello.py
 sudo ln -s /home/box/web/etc/ask.py /etc/gunicorn.d/ask.py
 git config --global user.email "struk@yandex.ru"
 git config --global user.name "struk77"
+sudo ./ask/manage.py makemigrations
+sudo ./ask/manage.py migrate
 sudo /etc/init.d/nginx restart
 #sudo /etc/init.d/gunicorn restart
 sudo gunicorn -c /home/box/web/etc/ask.py ask.wsgi:application --pythonpath='/home/box/web/ask/'
