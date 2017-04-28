@@ -16,7 +16,7 @@ Including another URLconf
     /
     /login/
     /signup/
-    /question/<123>/    # вместо <123> - произвольный ID
+    /question/<123>/    
     /ask/
     /popular/
     /new/
