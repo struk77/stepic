@@ -44,9 +44,12 @@ def question_popular_all(request):
         })
     
 @require_GET
-def question_details(request, question_id):
-    question = get_object_or_404(Question, question_id=question_id)
-    answers = Answer.objects.get(question=question_id)
+def question_details(request, id):
+    try:
+        question = get_object_or_404(Question, id=id)
+    except ValueError:
+        raise Http404
+    answers = Answer.objects.get(question=id)
     return render(request, 'ask/question_details.html', {
         'question':     question,
         'answers': answers,

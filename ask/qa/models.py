@@ -8,6 +8,14 @@ class QuestionManager(models.Manager):
     def popular(self):
         return self.order_by('-rating')   
 
+class AnswerManager(models.Manager):
+    def main(self):
+        answers = self.order_by('-id')
+        res = []
+        for a in answers:
+            res.append(a)
+        return res
+
 class Question(models.Model):
     objects = QuestionManager()
     
@@ -27,6 +35,8 @@ class Question(models.Model):
         ordering = ('-id',)
    
 class Answer(models.Model):
+    objects = AnswerManager()
+    
     text = models.TextField()
     added_at = models.DateField(auto_now_add=True)
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
