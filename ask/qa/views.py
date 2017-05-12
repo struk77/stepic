@@ -49,7 +49,7 @@ def question_details(request, id):
         question = get_object_or_404(Question, id=id)
     except ValueError:
         raise Http404
-    answers = Answer.objects.get(question=id)
+    answers = Answer.objects.filter(question=id)
     return render(request, 'ask/question_details.html', {
         'question':     question,
         'answers': answers,
