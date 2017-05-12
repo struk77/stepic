@@ -24,7 +24,7 @@ def question_all(request):
     paginator.baseurl = '/ask/?page='
     page = paginator.page(page)
     return render(request,'ask/question_all.html', {
-        'questions':  questions.object_list,
+        'questions':  page.object_list,
         'paginator': paginator,
         'page': page,
         })
@@ -37,7 +37,7 @@ def question_popular_all(request):
     paginator.baseurl = '/ask/popular/?page='
     page = paginator.page(page)
     return render(request,'ask/question_all.html', {
-        'questions':  questions.object_list,
+        'questions':  page.object_list,
         'paginator': paginator,
         'page': page,
         })
