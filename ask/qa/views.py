@@ -3,7 +3,7 @@ from django.views.decorators.http import require_GET
 from django.http import HttpResponse
 from django.core.paginator import Paginator
 
-from models import Question, Answer
+from qa.models import Question, Answer
 
 import logging
 
@@ -17,11 +17,24 @@ def test(request, *args, **kwargs):
     
 @require_GET
 def question_all(request):
-    questions = Question.objects
+    questions = Question.objects.new()
     limit = request.GET.get('limit',10)
     page = request.GET.get('page',1)
     paginator = Paginator(posts,limit)
     paginator.baseurl = '/ask/?page='
+    page = paginator.page(page)
+    return render(request,'ask/question_all.html', {
+        'questions':  questions.object_list,
+        'paginator': paginator,
+        'page': page,
+        })
+@require_GET
+def question_popular_all(request):
+    questions = Question.objects.popular()
+    limit = request.GET.get('limit',10)
+    page = request.GET.get('page',1)
+    paginator = Paginator(posts,limit)
+    paginator.baseurl = '/ask/popular/?page='
     page = paginator.page(page)
     return render(request,'ask/question_all.html', {
         'questions':  questions.object_list,
