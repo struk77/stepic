@@ -20,7 +20,7 @@ def question_all(request):
     questions = Question.objects.new()
     limit = request.GET.get('limit',10)
     page = request.GET.get('page',1)
-    paginator = Paginator(posts,limit)
+    paginator = Paginator(questions,limit)
     paginator.baseurl = '/ask/?page='
     page = paginator.page(page)
     return render(request,'ask/question_all.html', {
@@ -33,7 +33,7 @@ def question_popular_all(request):
     questions = Question.objects.popular()
     limit = request.GET.get('limit',10)
     page = request.GET.get('page',1)
-    paginator = Paginator(posts,limit)
+    paginator = Paginator(questions,limit)
     paginator.baseurl = '/ask/popular/?page='
     page = paginator.page(page)
     return render(request,'ask/question_all.html', {

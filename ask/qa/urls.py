@@ -30,5 +30,6 @@ from . import views
 
 urlpatterns = [
     url(r'^', views.question_all, name='question_all'),
+    url(r'^popular/', views.question_popular_all, name='question_popular_all'),
     url(r'^question/(?P<question_id>[0-9]+)/$', views.question_details, name='question_details'),
 ]
