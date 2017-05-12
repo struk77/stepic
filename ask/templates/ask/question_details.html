@@ -3,6 +3,11 @@
         <title>QA</title>
     </head>
     <body>
-        <div>{{ question }}</div>
+        <div>
+            <h1>{{ question.title }}</h1>
+            <p>{{ question.text }}</p>
+            {% for answer in answers %}
+                <p>{{ answer.text }}</p>
+        </div>
     </body>
 </html>

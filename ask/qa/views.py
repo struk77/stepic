@@ -46,6 +46,8 @@ def question_popular_all(request):
 @require_GET
 def question_details(request, question_id):
     question = get_object_or_404(Question, question_id=question_id)
+    answers = Answer.objects.get(question=question_id)
     return render(request, 'ask/question_details.html', {
         'question':     question,
+        'answers': answers,
         })
