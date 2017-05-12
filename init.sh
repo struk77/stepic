@@ -10,6 +10,7 @@ git config --global user.name "struk77"
 sudo ./ask/manage.py makemigrations
 sudo ./ask/manage.py migrate
 sudo /etc/init.d/nginx restart
-sudo apt-get install lynx
-sudo gunicorn -c /home/box/web/etc/ask.py ask.wsgi:application --pythonpath='/home/box/web/ask/'
+sudo apt-get update
+sudo apt-get -y install lynx mc 
+sudo gunicorn -c /home/box/web/etc/ask.py ask.wsgi:application --pythonpath='/home/box/web/ask/' &
 #sudo /etc/init.d/mysql start

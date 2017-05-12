@@ -28,6 +28,7 @@ def question_all(request):
         'paginator': paginator,
         'page': page,
         })
+        
 @require_GET
 def question_popular_all(request):
     questions = Question.objects.popular()
